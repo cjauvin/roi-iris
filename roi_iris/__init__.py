@@ -50,7 +50,6 @@ class IrisClassifier:
         # training error should obviously be quite low)
         assert metrics.accuracy_score(y, y_pred) > 0.95
 
-
     def add_sample(self, **kw):
         """Add a new sample, and retrain if desired
         """

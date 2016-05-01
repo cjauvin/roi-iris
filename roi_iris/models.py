@@ -3,6 +3,7 @@ from sqlalchemy import (
     Integer,
     Float,
     Text,
+    CheckConstraint
 )
 
 from sqlalchemy.ext.declarative import declarative_base
@@ -27,7 +28,7 @@ class Iris(Base):
     sepal_width = Column(Float)
     petal_length = Column(Float)
     petal_width = Column(Float)
-    target_name = Column(Text)
+    target_name = Column(Text, CheckConstraint("target_name in ('setosa', 'versicolor', 'virginica')"))
 
     def __init__(self, sepal_length, sepal_width, petal_length, petal_width, target_name):
         self.sepal_length = sepal_length
